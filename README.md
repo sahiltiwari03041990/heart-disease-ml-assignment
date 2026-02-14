@@ -1,6 +1,8 @@
 ## 1. Problem Statement
 
-Build a Machine Learning model that predicts whether a heart failure patient will experience a death event (DEATH_EVENT) based on their clinical and demographic data. The goal is to help identify high-risk patients early so timely medical attention and monitoring can be prioritized.
+Cardiovascular diseases remain one of the foremost causes of death worldwide. Detecting heart conditions at an early stage can greatly enhance patient outcomes by allowing timely medical care. Yet, diagnosis often depends on multiple clinical tests and expert evaluation, which can be resource‑intensive and subject to variability.
+
+This dataset contains patient records including demographic details, clinical measurements, and diagnostic test results. The objective is to develop machine learning models capable of predicting whether a patient has heart disease (the target variable) based on these attributes. By examining features such as age, sex, chest pain type, blood pressure, cholesterol levels, ECG findings, maximum heart rate, and exercise‑induced angina, predictive models can support healthcare professionals in identifying high‑risk individuals more efficiently..
 
 This application evaluates multiple classification models to determine the outcome:
 - **0 → No Heart disease**
@@ -61,6 +63,7 @@ DataSource : Kaggle
 | Naive Bayes (Gaussian) | Solid but not top-tier performance with accuracy (0.803) and AUC (0.802). Precision and recall (both 0.818) are balanced, but the independence assumption limits its ability to capture complex relationships. |
 | Random Forest | Performs similarly to Naive Bayes here, with accuracy (0.803) and AUC (0.802). Precision and recall (0.818) are balanced, but the model does not show its usual advantage, possibly due to dataset size or tuning. |
 | XGBoost | Average performance compared to other models, with accuracy (0.754) and AUC (0.754). Precision (0.781) and recall (0.758) are balanced but not outstanding, indicating weaker generalization without hyperparameter optimization. |
+
 
 
 
