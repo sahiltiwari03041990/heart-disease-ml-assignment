@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
 import joblib
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import (accuracy_score, roc_auc_score, precision_score, 
+                             recall_score, f1_score, matthews_corrcoef,   confusion_matrix)
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -49,8 +50,24 @@ if uploaded_file is not None:
     if y is not None:
         with col1:
             st.subheader("Evaluation Metrics")
-            report = classification_report(y, preds, output_dict=True)
-            st.dataframe(pd.DataFrame(report).T)
+            accuracy = accuracy_score(y, preds)
+            precision = precision_score(y, preds)
+            recall = recall_score(y, preds)
+            f1 = f1_score(y, preds)
+            mcc = matthews_corrcoef(y, preds)
+            auc = roc_auc_score(y, preds)
+            
+            c1,c2 = st.columns(2)
+            c1.metric("Accuracy", f"{accuracy:.3f}")
+            c2.metric("Precision", f"{precision:.3f}")
+
+            c3,c4 = st.columns(2)
+            c3.metric("Recall", f"{recall:.3f}")
+            c4.metric("F1 Score", f"{f1:.3f}")
+            
+            c5, c6 = st.columns(2)
+            c5.metric("MCC Score", f"{mcc:.3f}")
+            c6.metric("AUC Score", f"{auc:.3f}" if auc is not None else "N/A")
 
         with col2:
             st.subheader("Confusion Matrix")
