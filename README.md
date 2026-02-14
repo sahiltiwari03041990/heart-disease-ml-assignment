@@ -15,7 +15,7 @@ This dataset is a clinical dataset for heart disease prediction. It contains pat
 DataSource : Kaggle
 
 ### Dataset Overview
-- **Total Records:** 5000 
+- **Total Records:** 1026 
 - **Total Columns:** 14
 - **Input Features:** 13
 - **Target Column:** `target`
@@ -61,6 +61,7 @@ DataSource : Kaggle
 | Naive Bayes (Gaussian) | Solid but not top-tier performance with accuracy (0.803) and AUC (0.802). Precision and recall (both 0.818) are balanced, but the independence assumption limits its ability to capture complex relationships. |
 | Random Forest | Performs similarly to Naive Bayes here, with accuracy (0.803) and AUC (0.802). Precision and recall (0.818) are balanced, but the model does not show its usual advantage, possibly due to dataset size or tuning. |
 | XGBoost | Average performance compared to other models, with accuracy (0.754) and AUC (0.754). Precision (0.781) and recall (0.758) are balanced but not outstanding, indicating weaker generalization without hyperparameter optimization. |
+
 
 
 
