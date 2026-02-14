@@ -43,14 +43,20 @@ if uploaded_file is not None:
     preds = model.predict(X)
 
 
-    if y is not None:
-        st.subheader("Evaluation Metrics")
-        report = classification_report(y, preds, output_dict=True)
-        st.dataframe(pd.DataFrame(report).T)
+# upload test.csv file and download options
+    col1, col2 = st.columns([3,3])
 
-        cm = confusion_matrix(y, preds)
-        fig, ax = plt.subplots()
-        sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
-        ax.set_xlabel("Predicted")
-        ax.set_ylabel("Actual")
-        st.pyplot(fig)
+    if y is not None:
+        with col1:
+            st.subheader("Evaluation Metrics")
+            report = classification_report(y, preds, output_dict=True)
+            st.dataframe(pd.DataFrame(report).T)
+
+        with col2:
+            st.subheader("Confusion Matrix")
+            cm = confusion_matrix(y, preds)
+            fig, ax = plt.subplots(figsize=(4, 3), dpi = 20)
+            sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=ax)
+            ax.set_xlabel("Predicted", fontsize = 5)
+            ax.set_ylabel("Actual", fontsize = 5)
+            st.pyplot(fig)
